@@ -1,0 +1,20 @@
+.selector {
+    display: flex;
+    gap: 1rem;
+
+    &__item {
+        padding: 0.5rem 0;
+
+        &.active a {
+            text-decoration: underline;
+            text-underline-offset: 0.5rem; // décalage
+            font-weight: 600; // optionnel
+        }
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .selector {
+        flex-direction: column;
+    }
+}

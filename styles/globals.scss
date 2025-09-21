@@ -1,0 +1,137 @@
+@use "reset.scss";
+
+/* Thème clair → bouton noir/blanc */
+:root .theme-toggle {
+    background-color: #000;
+    color: #fff;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+    background-color: #fff;
+    color: #000;
+}
+
+body {
+    background-color: vars.$bg;
+    color: vars.$text;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: var(--font-space-grotesk), var(--font-space-mono), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+label,
+input,
+small,
+li {
+    line-height: 120%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-space-grotesk);
+}
+/* typography.scss */
+/* Mobile-first */
+
+h1 {
+    font-size: 2rem; // ~32px
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.5rem; // ~24px
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.25rem; // ~20px
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h4 {
+    font-size: 1.125rem; // ~18px
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+p,
+li {
+    font-size: 1rem; // ~16px
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+small {
+    font-size: 0.875rem; // ~14px
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* accent / bouton */
+button,
+a {
+    font-size: 1rem; // ~16px
+}
+
+a,
+p,
+label,
+input,
+small,
+li {
+    font-family: var(--font-space-mono);
+    line-height: 1.5;
+}
+
+.theme-btns {
+    position: fixed;
+    top: 1rem;
+    right: 1.8rem;
+    z-index: 9999;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    border: 1px solid black;
+    &[data-theme="dark"],
+    :root[data-theme="dark"] & {
+        border-color: white;
+    }
+}
+
+.theme-toggle {
+    height: 100%;
+    border-radius: 0 999px 999px 0;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s, transform 0.15s ease;
+    padding: 0rem 0.5rem;
+}
+
+@media only screen and (min-width: 760px) {
+    body {
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+    .theme-btns {
+        top: auto;
+        right: auto;
+        bottom: 4rem;
+        left: 1rem;
+    }
+}

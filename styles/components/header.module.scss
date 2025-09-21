@@ -1,0 +1,56 @@
+.header {
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    background: var(--bg); /* IMPORTANT: masque ce qui défile dessous */
+    z-index: 100;
+    &[data-theme="dark"],
+    :root[data-theme="dark"] & {
+        border-bottom-color: white;
+    }
+    &__title {
+        font-size: 2.8rem;
+    }
+    &__infos {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    &__jobs {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+}
+
+.lang__switcher {
+    height: 100%;
+    appearance: none;
+    border-radius: 999px 0 0 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 0rem 1rem;
+    background: white;
+    color: black;
+    &[data-theme="dark"],
+    :root[data-theme="dark"] & {
+        background: #000;
+        color: white;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+    .header {
+        position: fixed;
+        height: 100dvh;
+        left: 0;
+        width: 250px;
+        border-right: 1px solid black;
+        &[data-theme="dark"],
+        :root[data-theme="dark"] & {
+            border-right-color: white;
+        }
+    }
+}

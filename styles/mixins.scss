@@ -1,0 +1,40 @@
+@mixin full__percentage {
+    width: 100%;
+    height: 100%;
+}
+@mixin full__vp {
+    width: 100dvw;
+    height: 100dvh;
+}
+@mixin flex__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex__center__c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin grid__center {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin border-radius-top($radius) {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin transition($property, $duration: 0.3s, $ease: ease) {
+    transition: $property $duration $ease;
+}

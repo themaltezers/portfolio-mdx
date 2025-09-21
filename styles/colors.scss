@@ -1,0 +1,27 @@
+/* styles/pages/colors.scss */
+
+/* Thème clair (par défaut) */
+:root {
+    --bg: #ffffff;
+    --text: #111111; /* noir adouci */
+    --primary: #4f46e5; /* indigo vif */
+    --primary-hover: #4338ca;
+    --muted: #6b7280; /* gris neutre (texte secondaire) */
+    --border: #e5e7eb;
+    --success: #16a34a; /* vert émeraude */
+    --warning: #f59e0b; /* ambre doux */
+    --danger: #dc2626; /* rouge moyen */
+}
+
+/* Thème sombre */
+:root[data-theme="dark"] {
+    --bg: #0d0d0d; /* noir adouci */
+    --text: #ededed; /* blanc cassé */
+    --primary: #8ab4f8; /* bleu clair (Google Material Dark) */
+    --primary-hover: #669df6;
+    --muted: #9aa0a6; /* gris doux pour texte secondaire */
+    --border: #2a2a2a; /* séparateurs discrets */
+    --success: #22c55e;
+    --warning: #fbbf24;
+    --danger: #ef4444;
+}

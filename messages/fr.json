@@ -1,0 +1,13 @@
+{ 
+    "Header": {
+    "jobs": ["Développeur Full-Stack", "Web Designer", "Spécialiste SEO/SEA", "Community Manager"]
+  },
+   "Navigation": {
+    "links": [
+        { "href": "/", "label": "Projets" },
+        { "href": "/bio", "label": "Bio" },
+        { "href": "/contact", "label": "Contact" }
+    ]
+  }
+
+}
