@@ -4,7 +4,7 @@ import { getAllProjects } from "@/lib/getAllProjects";
 import styles from "@/styles/components/projectsGrid.module.scss";
 
 export default async function ProjectGrid({ locale }: { locale: string }) {
-    const projects = await getAllProjects();
+    const projects = await getAllProjects(locale); // "fr" ou "en"
     if (projects.length === 0) return <p>Aucun projet.</p>;
 
     return (

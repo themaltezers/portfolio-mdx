@@ -1,15 +1,6 @@
 @use "reset.scss";
 
 /* Thème clair → bouton noir/blanc */
-:root .theme-toggle {
-    background-color: #000;
-    color: #fff;
-}
-
-:root[data-theme="dark"] .theme-toggle {
-    background-color: #fff;
-    color: #000;
-}
 
 body {
     background-color: vars.$bg;
@@ -72,7 +63,7 @@ h4 {
 p,
 li {
     font-size: 1rem; // ~16px
-    font-weight: 400;
+
     line-height: 1.6;
 }
 
@@ -98,29 +89,17 @@ li {
     line-height: 1.5;
 }
 
-.theme-btns {
-    position: fixed;
-    top: 1rem;
-    right: 1.8rem;
-    z-index: 9999;
-    border-radius: 999px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    height: 44px;
-    border: 1px solid black;
-    &[data-theme="dark"],
-    :root[data-theme="dark"] & {
-        border-color: white;
-    }
-}
-
 .theme-toggle {
     height: 100%;
-    border-radius: 0 999px 999px 0;
     cursor: pointer;
     transition: background-color 0.25s, color 0.25s, transform 0.15s ease;
     padding: 0rem 0.5rem;
+    @include mixins.flex__center;
+}
+
+.react-icons {
+    width: 24px;
+    height: 24px;
 }
 
 @media only screen and (min-width: 760px) {

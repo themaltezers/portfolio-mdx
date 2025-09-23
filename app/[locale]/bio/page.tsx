@@ -24,7 +24,7 @@ export default async function BioPage({ params }: PageProps) {
     if (!isLocale(locale)) return notFound();
 
     const content = await fs.readFile(
-        path.join(process.cwd(), "content/bio", `bio.${locale}.mdx`),
+        path.join(process.cwd(), `content/${locale}`, `bio.mdx`),
         "utf-8"
     );
 

@@ -24,7 +24,11 @@ export default async function ProjectPage({ params }: { params: Params }) {
     const { locale, projectSlug } = await params;
 
     const file = await fs.readFile(
-        path.join(process.cwd(), "content/projects", `${projectSlug}.mdx`),
+        path.join(
+            process.cwd(),
+            `content/${locale}`,
+            `projects/${projectSlug}.mdx`
+        ),
         "utf-8"
     );
 
@@ -46,14 +50,25 @@ export default async function ProjectPage({ params }: { params: Params }) {
                 </ExitLink>
 
                 {/* Meta header */}
-                <header className="project-meta">
+                <div className="project-meta" style={{ marginTop: "2rem" }}>
                     {meta.cover && (
-                        <div className="project-cover">
+                        <div
+                            style={{
+                                position: "relative",
+                                width: "100%",
+                                aspectRatio: "16/9",
+                                overflow: "hidden",
+                            }}
+                        >
                             <Image
                                 src={meta.cover}
                                 alt={`${meta.title} cover`}
-                                width={1600}
-                                height={900}
+                                fill
+                                sizes="100vw"
+                                style={{
+                                    objectFit: "cover",
+                                    objectPosition: "center",
+                                }}
                                 priority
                             />
                         </div>
@@ -63,7 +78,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
                     {meta.subtitle && (
                         <p className="subtitle">{meta.subtitle}</p>
                     )}
-                </header>
+                </div>
 
                 {/* Corps MDX */}
                 <MDXRemote

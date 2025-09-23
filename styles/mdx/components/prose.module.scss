@@ -1,0 +1,71 @@
+/* styles/mdx/prose.scss */
+
+.mdx__wrapper,
+.accordion__content {
+    line-height: 1.7;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+/* Titres */
+.mdx__wrapper h1,
+.accordion__content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1.25rem 0 0.75rem;
+}
+.mdx__wrapper h2,
+.accordion__content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+}
+.mdx__wrapper h3,
+.accordion__content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.75rem 0 0.5rem;
+}
+
+/* Paragraphes */
+.mdx__wrapper p,
+.accordion__content p {
+    margin: 0.75rem 0;
+}
+
+/* Listes */
+.mdx__wrapper ul,
+.accordion__content ul {
+    margin: 0.5rem 0 0.75rem 1.25rem;
+    list-style: disc;
+}
+.mdx__wrapper li + li,
+.accordion__content li + li {
+    margin-top: 0.25rem;
+}
+
+/* Emphase */
+.mdx__wrapper strong,
+.accordion__content strong {
+    font-weight: 700;
+}
+.mdx__wrapper em,
+.accordion__content em {
+    font-style: italic;
+}
+
+/* Liens */
+.mdx__wrapper a,
+.accordion__content a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Images dans le contenu */
+.mdx__wrapper img,
+.accordion__content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}

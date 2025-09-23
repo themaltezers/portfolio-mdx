@@ -18,13 +18,8 @@ export default async function LocaleLayout({
 
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
-            <div style={{ position: "sticky", top: 0, zIndex: 100 }}>
-                <Header />
-                <div className="theme-btns">
-                    <LanguageSwitcher />
-                    <ThemeToggle />
-                </div>
-            </div>
+            <Header />
+
             <main style={{ padding: "2rem" }}>{children}</main>
         </NextIntlClientProvider>
     );

@@ -1,6 +1,8 @@
 // components/ThemeToggle.tsx
 "use client";
 import { useEffect, useState } from "react";
+import { IconContext } from "react-icons";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 export default function ThemeToggle() {
     const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -22,7 +24,15 @@ export default function ThemeToggle() {
 
     return (
         <button className="theme-toggle" onClick={toggleTheme}>
-            {theme === "light" ? "🌙" : "☀️"}
+            {theme === "light" ? (
+                <IconContext.Provider value={{ className: "react-icons" }}>
+                    <MdOutlineDarkMode width={24} height={24} />
+                </IconContext.Provider>
+            ) : (
+                <IconContext.Provider value={{ className: "react-icons" }}>
+                    <MdOutlineLightMode />
+                </IconContext.Provider>
+            )}
         </button>
     );
 }

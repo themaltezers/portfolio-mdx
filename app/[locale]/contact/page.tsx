@@ -24,7 +24,7 @@ export default async function ContactPage({ params }: PageProps) {
     if (!isLocale(locale)) return notFound();
 
     const content = await fs.readFile(
-        path.join(process.cwd(), "content/contact", `contact.${locale}.mdx`),
+        path.join(process.cwd(), `content/${locale}`, `contact.mdx`),
         "utf-8"
     );
 

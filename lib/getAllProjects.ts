@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 
@@ -10,8 +10,27 @@ export type ProjectMeta = {
     cover?: string;
 };
 
-export async function getAllProjects(): Promise<ProjectMeta[]> {
-    const dir = path.resolve(process.cwd(), "content", "projects");
+async function dirExists(p: string) {
+    try {
+        return (await stat(p)).isDirectory();
+    } catch {
+        return false;
+    }
+}
+
+/**
+ * Lit les projets dans content/<locale>/projects
+ * @param locale ex: "fr" | "en"
+ */
+export async function getAllProjects(
+    locale: string = "fr"
+): Promise<ProjectMeta[]> {
+    // tente le dossier demandé, sinon fallback "fr"
+    let dir = path.resolve(process.cwd(), "content", locale, "projects");
+    if (!(await dirExists(dir))) {
+        dir = path.resolve(process.cwd(), "content", "fr", "projects");
+    }
+
     const files = await readdir(dir);
 
     const items = await Promise.all(
@@ -20,7 +39,9 @@ export async function getAllProjects(): Promise<ProjectMeta[]> {
             const slug = file.replace(/\.mdx?$/i, "");
             const raw = await readFile(path.join(dir, file), "utf8");
             const { data } = matter(raw);
+
             if (!data?.title || !data?.date) return null;
+
             return {
                 slug,
                 title: String(data.title),
@@ -31,8 +52,8 @@ export async function getAllProjects(): Promise<ProjectMeta[]> {
         })
     );
 
-    const projects = (items.filter(Boolean) as ProjectMeta[]).sort((a, b) =>
-        a.date < b.date ? 1 : -1
+    // tri par date décroissante
+    return (items.filter(Boolean) as ProjectMeta[]).sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
-    return projects;
 }

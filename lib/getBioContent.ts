@@ -10,11 +10,7 @@ export type BioContent = {
 export async function getBioContent(
     locale: "fr" | "en"
 ): Promise<BioContent | null> {
-    const filePath = path.join(
-        process.cwd(),
-        "content",
-        `bio/bio.${locale}.mdx`
-    );
+    const filePath = path.join(process.cwd(), "content", `${locale}/bio.mdx`);
     try {
         const raw = await fs.readFile(filePath, "utf8");
         const { data, content } = matter(raw);
