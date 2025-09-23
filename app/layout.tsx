@@ -72,6 +72,9 @@ export default function RootLayout({
 }) {
     return (
         <html suppressHydrationWarning>
+            <head>
+                <meta name="apple-mobile-web-app-title" content="zooom." />
+            </head>
             <body className={`${spaceGrotesk.variable} ${spaceMono.variable}`}>
                 {children}
             </body>
