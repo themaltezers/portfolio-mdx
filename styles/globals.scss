@@ -93,13 +93,17 @@ li {
     height: 100%;
     cursor: pointer;
     transition: background-color 0.25s, color 0.25s, transform 0.15s ease;
-    padding: 0rem 0.5rem;
+
     @include mixins.flex__center;
 }
 
 .react-icons {
     width: 24px;
     height: 24px;
+    &__socials {
+        width: 44px;
+        height: 44px;
+    }
 }
 
 @media only screen and (min-width: 760px) {

@@ -17,6 +17,7 @@ export default function Header() {
 
                     <div className={styles.header__btns}>
                         <LanguageSwitcher />
+                        <span className={styles.separator}></span>
                         <ThemeToggle />
                     </div>
                 </div>

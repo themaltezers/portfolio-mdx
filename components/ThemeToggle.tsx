@@ -26,7 +26,7 @@ export default function ThemeToggle() {
         <button className="theme-toggle" onClick={toggleTheme}>
             {theme === "light" ? (
                 <IconContext.Provider value={{ className: "react-icons" }}>
-                    <MdOutlineDarkMode width={24} height={24} />
+                    <MdOutlineDarkMode />
                 </IconContext.Provider>
             ) : (
                 <IconContext.Provider value={{ className: "react-icons" }}>

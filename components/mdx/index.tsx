@@ -6,9 +6,11 @@ import Section from "./Section";
 import Carousel from "@/components/mdx/Carousel";
 import Lightbox from "./LightBox";
 import CustomLink from "./CustomLink";
+import SocialLinks from "./SocialLinks";
 
 export const mdxComponents: MDXComponents = {
     a: CustomLink,
+    SocialLinks,
     Lightbox,
     Section,
     Carousel,

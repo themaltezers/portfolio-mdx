@@ -1,0 +1,23 @@
+.socials {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+
+    li {
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        display: block;
+    }
+}

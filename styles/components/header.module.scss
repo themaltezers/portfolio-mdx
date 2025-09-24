@@ -6,7 +6,8 @@
     background: vars.$bg;
     z-index: 100;
     &__infos,
-    &__jobs {
+    &__jobs,
+    &__btns {
         display: flex;
     }
     &__top {
@@ -14,8 +15,7 @@
         grid-template-columns: 70% 30%;
     }
     &__btns {
-        justify-content: center;
-        @include mixins.flex__center;
+        justify-content: space-around;
         height: 44px;
     }
     &__title {
@@ -34,21 +34,26 @@
     }
 }
 
+.separator {
+    width: 1px;
+    height: 100%;
+    background-color: currentColor;
+}
+
 .lang__switcher {
     height: 100%;
     appearance: none;
     border: none;
     cursor: pointer;
-    padding: 1rem;
     background: vars.$bg;
     color: vars.$text;
+    font-style: 1rem;
 }
 
 @media only screen and (min-width: 760px) {
     .header {
         height: 100dvh;
         left: 0;
-
         border-right: 1px solid vars.$text;
         border-bottom: none;
         &__jobs {
